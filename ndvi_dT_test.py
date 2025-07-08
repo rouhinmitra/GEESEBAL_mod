@@ -33,18 +33,18 @@ def run_ndvi_dT_tests():
         data.append(pd.read_csv(file_list[i]))
     tw3_index = None
     for i, df in enumerate(data):
-        if "US-Tw3" in df["Name"].iloc[0]:
+        if "US-ARM" in df["Name"].iloc[0]:
             tw3_index = i
             break
     if tw3_index is None:
         print("Error: Tw3 station data not found")
         return
-    base_output_dir = "D:\\Backup\\Rouhin_Lenovo\\US_project\\GEE_SEBAL_Project\\csv_combined\\dT_edits\\ndvi_dT_tests"
+    base_output_dir = "D:\\Backup\\Rouhin_Lenovo\\US_project\\GEE_SEBAL_Project\\csv_combined\\dT_edits\\ndvi_dT_tests\\US-ARM\\"
     if not os.path.exists(base_output_dir):
         os.makedirs(base_output_dir)
     for i, config in enumerate(configs):
         if i == 0:
-            config_name = "Regular_fv"
+            config_name = "Regular_fv_fstress"
         else:
             config_name = f"config_{i+1}"
         print(f"\nRunning configuration: {config_name}")
